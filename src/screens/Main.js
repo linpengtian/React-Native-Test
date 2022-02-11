@@ -14,7 +14,6 @@ import { Avatar } from 'react-native-paper';
 
 
 const SectionTitle = ({image, name, nickName, ago}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionHeader}>
       <Avatar.Image size={40} source={image} />
@@ -28,6 +27,28 @@ const SectionTitle = ({image, name, nickName, ago}): Node => {
       </View>
       <TouchableOpacity>
         <Image source={require('../assets/images/more.png')}></Image>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const SectionBottom = ({like, chat, archives}): Node => {
+  return (
+    <View style={styles.sectionBottom}>
+      <Image source={require('../assets/images/heart.svg')}/>
+      <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>
+        {like}
+      </Text>
+      <Image style={{marginLeft: 20}} source={require('../assets/images/chat.svg')}/>
+      <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>
+        {chat}
+      </Text>
+      <Image style={{marginLeft: 20}} source={require('../assets/images/archive.svg')}/>
+      <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>
+        {archives}
+      </Text>
+      <TouchableOpacity style={{marginLeft: 'auto'}}>
+        <Image source={require('../assets/images/send.svg')}/>
       </TouchableOpacity>
     </View>
   );
@@ -82,17 +103,7 @@ const Main: () => Node = () => {
           <Image style={styles.pic} source={require('../assets/images/pic2.png')}/>
         </View>
 
-        <View style={styles.sectionBottom}>
-          <Image source={require('../assets/images/heart.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>468</Text>
-          <Image style={{marginLeft: 20}} source={require('../assets/images/chat.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>2.2k</Text>
-          <Image style={{marginLeft: 20}} source={require('../assets/images/archive.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>8.6k</Text>
-          <TouchableOpacity style={{marginLeft: 'auto'}}>
-            <Image source={require('../assets/images/send.svg')}/>
-          </TouchableOpacity>
-        </View>
+        <SectionBottom like="468" chat="2.2k" archives="8.6k"/>
 
       </View>
 
@@ -135,17 +146,26 @@ const Main: () => Node = () => {
           I had moments when I thought this project would never happen . However 14 years later, a global recession, some mistakes and a lot of hard work and persistence.
         </Text>
 
-        <View style={styles.sectionBottom}>
-          <Image source={require('../assets/images/heart.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>468</Text>
-          <Image style={{marginLeft: 20}} source={require('../assets/images/chat.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>2.2k</Text>
-          <Image style={{marginLeft: 20}} source={require('../assets/images/archive.svg')}/>
-          <Text style={{...styles.normalText, marginLeft: 8, height: 18, textAlignVertical: 'center'}}>8.6k</Text>
-          <TouchableOpacity style={{marginLeft: 'auto'}}>
-            <Image source={require('../assets/images/send.svg')}/>
-          </TouchableOpacity>
+        <SectionBottom like="368" chat="4.2k" archives="8.6k"/>
+
+      </View>
+
+      <View style={styles.sectionContainer}>
+        <SectionTitle 
+          image={require('../assets/images/avatar5.png')} 
+          name="Tyler Kutt"
+          nickName="tylerkutt_01"
+          ago="1hr"/>
+        
+        <View style={styles.tagsContainer}>
+          <Image source={require('../assets/images/pool.svg')}/>
         </View>
+
+        <Text style={{...styles.normalText, marginTop: 12}}>
+          What design tool do you use the most?
+        </Text>
+
+        <SectionBottom like="468" chat="2.2k" archives="8.4k"/>
 
       </View>
     </View>
