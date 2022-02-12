@@ -54,6 +54,23 @@ const SectionBottom = ({like, chat, archives}): Node => {
   );
 };
 
+const SectionVote = (): Node => {
+  return (
+    <View style={{marginTop: 16}}>
+      <TouchableOpacity style={{...styles.voteButton}}>
+        <Text style={styles.voteButtonTitle}>Photoshop</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{...styles.voteButton, borderColor: '#D6F4FF'}}>
+        <Text style={styles.voteButtonTitle}>Adobe XD</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={{...styles.voteButton, borderColor: '#DFE0FA'}}>
+        <Text style={styles.voteButtonTitle}>Figma</Text>
+      </TouchableOpacity>
+      <Text style={{marginVertical: 16, color: '#BD6EFF'}}>486 votes <Text style={{color: '#8B8E97'}}>{'\u2022'} 6h left</Text></Text>
+    </View>
+  );
+};
+
 const Main: () => Node = () => {
   
   return (
@@ -165,6 +182,8 @@ const Main: () => Node = () => {
           What design tool do you use the most?
         </Text>
 
+        <SectionVote/>
+
         <SectionBottom like="468" chat="2.2k" archives="8.4k"/>
 
       </View>
@@ -227,6 +246,20 @@ const styles = StyleSheet.create({
   imageContent: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  voteButton: {
+    marginBottom: 8,
+    height: 32,
+    borderColor: '#F5E0FA',
+    borderWidth: 1,
+    borderRadius: 18,
+  },
+  voteButtonTitle: {
+    height: 32,
+    color: '#222222',
+    fontFamily: 'Poppins-Medium',
+    textAlign: 'center',
+    textAlignVertical: 'center',
   }
 });
 
